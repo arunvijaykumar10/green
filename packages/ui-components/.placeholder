@@ -1,0 +1,21 @@
+# UI Components Package
+
+This directory will contain shared UI components built with MUI and MUI X.
+
+## Structure (to be implemented)
+
+- `src/` - Component source code
+- `lib/` - Build output
+- `package.json` - Package configuration
+- `tsconfig.json` - TypeScript configuration
+- `vite.config.js` - Vite build configuration
+
+## Components to include
+
+- Form components for payroll data entry
+- Data grids for timesheet and payroll displays
+- Charts and analytics components
+- Common layout components
+- Theme provider and styling utilities
+
+This placeholder ensures the directory is tracked by Git until actual implementation begins.

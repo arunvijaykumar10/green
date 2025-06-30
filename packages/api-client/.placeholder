@@ -1,0 +1,22 @@
+# API Client Package
+
+This directory will contain the shared API client library for GraphQL communication with the Rails backend.
+
+## Structure (to be implemented)
+
+- `src/` - Client source code
+- `lib/` - Build output
+- `package.json` - Package configuration
+- `tsconfig.json` - TypeScript configuration
+- `vite.config.js` - Vite build configuration
+
+## Features to include
+
+- GraphQL client with type safety
+- Authentication handling
+- Error handling and retry logic
+- Caching strategies
+- Request/response interceptors
+- Generated types from GraphQL schema
+
+This placeholder ensures the directory is tracked by Git until actual implementation begins.

@@ -1,0 +1,24 @@
+# Architecture Documentation
+
+This directory will contain system architecture documentation for the Greenroom platform.
+
+## Structure (to be implemented)
+
+- `README.md` - Architecture overview
+- `system-design.md` - High-level system design
+- `database-schema.md` - Database design and relationships
+- `infrastructure.md` - AWS infrastructure documentation
+- `security.md` - Security architecture and practices
+- `deployment.md` - Deployment architecture and processes
+- `diagrams/` - Architecture diagrams and flowcharts
+
+## Documentation to include
+
+- Service architecture and communication patterns
+- Database design and data flow
+- Infrastructure topology
+- Security model and authentication flows
+- Deployment pipelines and environments
+- Monitoring and observability setup
+
+This placeholder ensures the directory is tracked by Git until actual implementation begins.

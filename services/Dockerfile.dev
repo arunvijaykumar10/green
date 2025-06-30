@@ -1,0 +1,58 @@
+ARG RUBY_VERSION=3.4.4
+FROM ruby:$RUBY_VERSION
+
+# Environment variables
+ENV CFLAGS="-O0" \
+    BUNDLE_FORCE_RUBY_PLATFORM=true \
+    DEBIAN_FRONTEND=noninteractive
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    ca-certificates \
+    gnupg \
+    build-essential \
+    libxml2-dev \
+    libxslt-dev \
+    zlib1g-dev \
+    pkg-config \
+    git \
+    libssl-dev \
+    libffi-dev \
+    libvips-tools \
+    libvips-dev \
+    automake \
+    autoconf \
+    libtool \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install PostgreSQL client 17
+RUN curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
+    gpg --dearmor -o /usr/share/keyrings/postgresql.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/postgresql.gpg] http://apt.postgresql.org/pub/repos/apt jammy-pgdg main" \
+    > /etc/apt/sources.list.d/pgdg.list && \
+    apt-get update && apt-get install -y postgresql-client-17 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Update RubyGems and install Bundler
+RUN gem update --system && \
+    gem install bundler
+
+# Set working directory using build argument
+ARG APP_DIR
+WORKDIR /app/api/$APP_DIR
+
+# Copy Gemfile and Gemfile.lock
+COPY $APP_DIR/Gemfile ./
+
+# Install application dependencies
+RUN bundle install
+
+# Set useful aliases
+RUN echo "alias be='bundle exec'" >> $HOME/.bashrc && \
+    echo "alias bi='bundle install'" >> $HOME/.bashrc && \
+    echo "alias logs='tail -f log/docker_dev.log'" >> $HOME/.bashrc && \
+    echo "alias debug='be rdbg -a'" >> $HOME/.bashrc
+
+# Expose port
+EXPOSE 80

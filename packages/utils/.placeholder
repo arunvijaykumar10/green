@@ -1,0 +1,25 @@
+# Utilities Package
+
+This directory will contain shared utility functions and helpers used across all applications.
+
+## Structure (to be implemented)
+
+- `src/` - Utility source code
+- `lib/` - Build output
+- `package.json` - Package configuration
+- `tsconfig.json` - TypeScript configuration
+- `vite.config.js` - Vite build configuration
+
+## Utilities to include
+
+- Date and time helpers for payroll calculations
+- Validation functions
+- Formatting utilities (currency, dates, phone numbers)
+- Common business logic helpers
+- Type definitions and interfaces
+- Constants and enums
+- Math utilities for payroll calculations
+- String manipulation helpers
+- Array and object utilities
+
+This placeholder ensures the directory is tracked by Git until actual implementation begins.

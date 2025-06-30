@@ -1,0 +1,354 @@
+[33mcommit 1a347866b687a249da25ca0f3a6cdc01ba8d5073[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mcgwip[m[33m, [m[1;31morigin/cgwip[m[33m)[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Sun Jun 22 11:41:17 2025 +0530
+
+    Fix union classification for a company
+
+[33mcommit 41e5133ea3d81c7c1c43f5948c96b49b3be525c6[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Sat Jun 21 19:18:47 2025 +0530
+
+    Fix alignment
+
+[33mcommit 3de432551fa8b055aa83d3b42a3e57965280158f[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Sat Jun 21 19:00:18 2025 +0530
+
+    completed union configuration controller
+
+[33mcommit 9426c71b5ebd928a3616d08fcaef7c9daa5e0fa2[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Sat Jun 21 18:08:38 2025 +0530
+
+    Fix policy
+
+[33mcommit aab2dfe11c16a063764ab6f5421450db7a6d2330[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Sat Jun 21 17:58:40 2025 +0530
+
+    Migrate company union configuration
+
+[33mcommit b87a7e3e76e8134ef977fe322fc8063b77783c02[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Sat Jun 21 16:17:36 2025 +0530
+
+    Fix has many to one relation
+
+[33mcommit 29af4d5c5501ff036d27c8d7d4c406ec90b7dcb7[m
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Sat Jun 21 15:32:13 2025 +0530
+
+    Implemented api integrations for comapny, payroll, bank
+
+[33mcommit 2d8e3dbb4752d5c3a8d620dabc3eb4861692ac39[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Fri Jun 20 21:25:45 2025 +0530
+
+    Fix index payroll and bank config
+
+[33mcommit 22a80b00a78c52f1a15176de20a3a30a260b7fae[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Fri Jun 20 15:42:15 2025 +0530
+
+    Fix companies controller
+
+[33mcommit 1a13871c87b0e69aed9a8ee542bf52486e7f81c8[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Fri Jun 20 15:35:09 2025 +0530
+
+    Add new columns in bank configuration
+
+[33mcommit ed198861caa2d24f2f437fb3d5f7b78cfc73dd51[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Fri Jun 20 15:11:26 2025 +0530
+
+    Fix bank and company policies
+
+[33mcommit 6cba0829104e40215dd19e8cae67cd5ee5edf288[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Fri Jun 20 12:21:55 2025 +0530
+
+    Fix companies controller to update company information
+
+[33mcommit 381a4de69da92d29c96ec5f4bd6ff3d1586999e6[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Thu Jun 19 20:02:54 2025 +0530
+
+    Fix def
+
+[33mcommit 87733dbdb8590dd2ad1b0970496461eb5cd30024[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Thu Jun 19 19:57:12 2025 +0530
+
+    fix roles
+
+[33mcommit 10213db553b9520e1a9d293fe2a92b60e802e051[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Thu Jun 19 19:40:08 2025 +0530
+
+    Added jbuilder for other company configurations
+
+[33mcommit f8fb4583699bb412c0c3acd3fa6a0f84131c912d[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Thu Jun 19 14:59:13 2025 +0530
+
+    Fix company policies and added indexing
+
+[33mcommit 6e83585e5ca9dc20b5a2e03605fb8130d4478e8c[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Thu Jun 19 14:41:07 2025 +0530
+
+    Implemented session store and company views
+
+[33mcommit ed63393e17742defc05a3e69c553b4c5500ec6a8[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Thu Jun 19 12:44:44 2025 +0530
+
+    Refine migration
+
+[33mcommit 2c139182a9d1655100f6a78d9b51685ed483ba09[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Thu Jun 19 11:33:28 2025 +0530
+
+    Added pundit authorization, session controller, created company onboard tables
+
+[33mcommit bc4303578fbf60bcc1d8cc44fadc3c71a2c5d564[m
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Wed Jun 18 14:56:59 2025 +0530
+
+    Fixed reg flow
+
+[33mcommit d9802cdc5099a93924d3915397f0af03e64e8e2a[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Wed Jun 18 13:51:41 2025 +0530
+
+    Models for access role
+
+[33mcommit f607ab2478b13eec791527db53dc57c24e8efe88[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Wed Jun 18 11:33:58 2025 +0530
+
+    Created necessary fields for registration and user profile
+
+[33mcommit 5740e42093194867ac61a6071a0a700b7777cc30[m
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Tue Jun 17 16:12:16 2025 +0530
+
+    Implemented onboarding screens
+
+[33mcommit c79705f3c396adeafc2f1aa758323fd46dd566fe[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Tue Jun 17 15:51:39 2025 +0530
+
+    Fix user registration controller
+
+[33mcommit 128c057b90319e170628b89048ce7d4e2f84be75[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Tue Jun 17 15:04:42 2025 +0530
+
+    controller for user registration
+
+[33mcommit ca34b62884b8e11f3cd45c93a98c13bf77a83505[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Tue Jun 17 15:02:30 2025 +0530
+
+    added specs and models required for registration
+
+[33mcommit 7c428618e5d0f3ecd37bef754c897ede6b22516d[m
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Tue Jun 17 15:00:06 2025 +0530
+
+    removed unwanted files
+
+[33mcommit d47dc932d943430a178e91dcb3660575b834b71b[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Tue Jun 17 13:03:02 2025 +0530
+
+    Update company models and policies
+
+[33mcommit 9797feec95812b86211039f3e0aa738ea4a8cfa6[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Tue Jun 17 12:55:48 2025 +0530
+
+    Finalized migration tables
+
+[33mcommit 2ce3df5cb9cc161f058f2401148d798c5afc613b[m
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Mon Jun 16 23:09:14 2025 +0530
+
+    Fixed registration and me request
+
+[33mcommit c378f41173747edc13867d867b579845daf03d54[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Mon Jun 16 15:53:49 2025 +0530
+
+    Implement profile authentication
+
+[33mcommit 452b4af710a238a9701ef8062bcaf0eca22d37eb[m[33m ([m[1;32mcomp[m[33m)[m
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Mon Jun 16 15:17:31 2025 +0530
+
+    fixed schema
+
+[33mcommit a6d70a766f62dc88ddf081d86d6f69aa724b6313[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Mon Jun 16 14:45:14 2025 +0530
+
+    Initialize job titles
+
+[33mcommit 1eb26efe702e962f56273738b2b94d71ee5ceda8[m
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Mon Jun 16 14:42:20 2025 +0530
+
+    Added gitignore
+
+[33mcommit a7adbf09614cc1b304b02b1e23de0f80a8a553c1[m
+Author: Santhosh M <santhosh@drylogics.com>
+Date:   Mon Jun 16 14:15:55 2025 +0530
+
+    Registration completed(#1)
+
+[33mcommit 879d527788e89f8288cb40aceaf1fc751c25dbaf[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Mon Jun 16 14:02:50 2025 +0530
+
+    Update union and bank configuration
+
+[33mcommit 6b4a9f3f014a0d76fa89aeab568bbf004f9de75d[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Fri Jun 13 10:13:56 2025 +0530
+
+    Added docker dev
+
+[33mcommit 123d627368130949a2414433d6c8fabf5dc90b54[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Thu Jun 12 14:36:12 2025 +0530
+
+    Initialize user credentials with cognito
+
+[33mcommit c6c563dd7066d57a09ac17e16f12da1ca40927ae[m[33m ([m[1;32mmain[m[33m)[m
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Wed Jun 11 18:23:47 2025 +0530
+
+    Rename folder
+
+[33mcommit eb2406ee1c41eb0ebebc3f517118c80245a069ef[m
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Wed Jun 11 16:56:23 2025 +0530
+
+    Clean up
+
+[33mcommit a12c714c50afad88d5795ac18cf2e74b6d8169a2[m
+Merge: 6751e12 bb6b249
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Wed Jun 11 14:53:29 2025 +0530
+
+    Merge branch 'main' of github.com:tabletoplabs-ai/greenroom
+
+[33mcommit 6751e12e913f42c6198b9946a46f32430615b0ea[m
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Wed Jun 11 14:52:13 2025 +0530
+
+    integrated  unit test framwork
+
+[33mcommit bb6b249bc19d49d34328e943da13b98e9bf50adb[m
+Author: Santhosh <santhosh@drylogics.com>
+Date:   Wed Jun 11 13:39:20 2025 +0530
+
+    Setup dev docker with docker compose
+
+[33mcommit c562e239bc323904d93637ecabef6ebab7e3e973[m
+Author: Sathya0531 <sathya.arunachalam@drylogics.com>
+Date:   Wed Jun 11 11:07:10 2025 +0530
+
+    Cleanup placeholders and add front-end directory
+
+[33mcommit 113874f5e2f745bf28051de6110db5a4bb9d00a2[m
+Author: Mike Stanley <mike@tabletoplabs.co>
+Date:   Mon Jun 2 00:07:47 2025 -0400
+
+    added rspec as the testing framework
+
+[33mcommit 320fa9cebded4d9c1c2dcf8146ae0a8513a75c65[m
+Author: Mike Stanley <mike@tabletoplabs.co>
+Date:   Sun Jun 1 23:49:17 2025 -0400
+
+    instantiated rails api
+
+[33mcommit 2bcdc4d45d4e817d7c6ca092e3a14a40088027b6[m
+Author: Mike Stanley <mike@tabletoplabs.co>
+Date:   Sun Jun 1 21:49:50 2025 -0400
+
+    TCG-4 - Integrate Cognito for authentication in AWS setup
+    
+    - Added Cognito module to development and staging environments for user authentication.
+    - Configured environment variables for ECS to include Cognito settings.
+    - Updated Route 53 module to create an auth subdomain pointing to the Cognito domain.
+    - Enhanced outputs to include Cognito user pool details and authentication configuration.
+    - Updated Terraform variables and example configurations for Cognito settings, including password policies and OAuth URLs.
+
+[33mcommit a0c7eafca157337ae0ccb6b77de35d6787f67677[m
+Author: Mike Stanley <mike@tabletoplabs.co>
+Date:   Sun Jun 1 21:18:39 2025 -0400
+
+    TCG-4 - continued AWS setup with Route53
+    
+    Implement Route 53 DNS module in development environment
+    
+    - Added Route 53 DNS module to manage public and private hosted zones.
+    - Configured domain names, zone creation flags, and DNS record settings.
+    - Updated ECS module to utilize internal DNS for cache and database connections.
+    - Enhanced outputs to include DNS-related information and internal hostnames.
+    - Updated example Terraform variables to include DNS configuration options.
+
+[33mcommit 0a30511b3d8f1ac70ce4bfc8362ce669d2c83a18[m
+Author: Mike Stanley <mike@tabletoplabs.co>
+Date:   Sun Jun 1 20:21:04 2025 -0400
+
+    TCG-4 - continued AWS Setup
+    
+    Enhance Greenroom infrastructure with ElastiCache integration
+    
+    - Updated README to include ElastiCache module details and architecture overview.
+    - Added ElastiCache Valkey module to development and staging environments with configuration for caching.
+    - Updated ECS configurations to allow connections to ElastiCache and included cache connection environment variables.
+    - Enhanced Terraform variables and outputs to support ElastiCache settings and monitoring.
+
+[33mcommit 97a9c6693b72f2c62a5343f3e1f0cf9cda0e0957[m
+Author: Mike Stanley <mike@tabletoplabs.co>
+Date:   Sun Jun 1 19:32:53 2025 -0400
+
+    TCG-4 - continued AWS setup
+    
+    Update infrastructure documentation and Terraform configurations for containerized deployment
+    
+    - Revised README to reflect changes in development and staging TLDs.
+    - Enhanced infrastructure documentation with details on container deployment, ECR, and ECS modules.
+    - Added load balancer, ECR, and ECS configurations to Terraform for the development environment.
+    - Updated variables and outputs to support new containerized architecture and health check configurations.
+
+[33mcommit a3c4b705981176803b7cff40fb45b7baeaae4a2b[m
+Author: Mike Stanley <mike@tabletoplabs.co>
+Date:   Sun Jun 1 19:09:03 2025 -0400
+
+    TCG-4 - continued with setup of AWS infrastructure
+    
+    Add RDS PostgreSQL module and outputs for development and staging environments, including configuration variables for instance class, storage, and backup settings.
+
+[33mcommit df842c72419999e25a27bb00fe8d4107be150bbc[m
+Author: Mike Stanley <mike@tabletoplabs.co>
+Date:   Sun Jun 1 18:01:09 2025 -0400
+
+    created placeholders for the empty directories
+
+[33mcommit fab8bfba20f98422a017d6a84d296b2c4133bc90[m
+Author: Mike Stanley <mike@tabletoplabs.co>
+Date:   Sun Jun 1 17:12:42 2025 -0400
+
+    Add initial Terraform infrastructure setup and version management
+
+[33mcommit 37c3c4462b696cfbffd9b6a24cfd34905c80d7c9[m
+Author: Mike Stanley <mike@tabletoplabs.co>
+Date:   Thu Apr 17 13:42:31 2025 -0400
+
+    added the initial README

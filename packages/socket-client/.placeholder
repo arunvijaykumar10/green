@@ -1,0 +1,31 @@
+# Socket Client Package
+
+This directory will contain the shared WebSocket client library for real-time features.
+
+## Structure (to be implemented)
+
+- `src/` - Client source code
+- `lib/` - Build output
+- `package.json` - Package configuration
+- `tsconfig.json` - TypeScript configuration
+- `vite.config.js` - Vite build configuration
+
+## Features to include
+
+- WebSocket connection management
+- Authentication and authorization for secure connections
+- Channel-based communication for topic isolation
+- Automatic reconnection logic
+- Message queuing for offline scenarios
+- Event handling and subscription management
+- Type-safe event definitions
+
+## Real-time capabilities
+
+- Live payroll processing status updates
+- Immediate timesheet approval notifications
+- Real-time collaboration on documents
+- Instant chat for support and notifications
+- Live dashboard metrics updates
+
+This placeholder ensures the directory is tracked by Git until actual implementation begins.

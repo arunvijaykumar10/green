@@ -1,0 +1,25 @@
+# Development and Build Scripts
+
+This directory will contain utility scripts for development, building, and deployment.
+
+## Structure (to be implemented)
+
+- `setup.sh` - Initial project setup script
+- `dev.sh` - Start development environment
+- `build.sh` - Build all applications and packages
+- `test.sh` - Run all tests across the monorepo
+- `deploy.sh` - Deployment automation scripts
+- `db/` - Database utility scripts
+- `docker/` - Docker-related scripts
+- `ci/` - CI/CD helper scripts
+
+## Scripts to include
+
+- Environment setup and dependency installation
+- Development server orchestration
+- Build and packaging automation
+- Testing and quality assurance
+- Database migration and seeding
+- Deployment and infrastructure management
+
+This placeholder ensures the directory is tracked by Git until actual implementation begins.

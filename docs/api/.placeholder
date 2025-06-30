@@ -1,0 +1,23 @@
+# API Documentation
+
+This directory will contain comprehensive API documentation for the Greenroom platform.
+
+## Structure (to be implemented)
+
+- `README.md` - API overview and getting started guide
+- `graphql/` - GraphQL schema documentation
+- `authentication.md` - Authentication and authorization guide
+- `endpoints/` - Detailed endpoint documentation
+- `examples/` - Code examples and use cases
+- `postman/` - Postman collections for testing
+
+## Documentation to include
+
+- GraphQL schema and queries
+- Authentication flows
+- Error handling
+- Rate limiting
+- Webhook documentation
+- SDK usage examples
+
+This placeholder ensures the directory is tracked by Git until actual implementation begins.

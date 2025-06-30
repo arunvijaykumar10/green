@@ -1,0 +1,7 @@
+aws/
+
+# Environment variable files
+.env
+.env.*
+!.env.example
+services/api/db/schema.rb

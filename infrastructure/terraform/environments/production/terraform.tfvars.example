@@ -1,0 +1,12 @@
+# Production Environment Configuration
+# Copy this file to terraform.tfvars and customize as needed
+
+# AWS region for production environment
+aws_region = "us-east-1"
+
+# VPC CIDR block
+vpc_cidr = "10.2.0.0/16"
+
+# High availability for production
+enable_nat_gateway    = true
+single_nat_gateway    = false  # Multiple NAT gateways for HA

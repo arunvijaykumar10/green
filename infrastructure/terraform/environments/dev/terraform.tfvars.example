@@ -1,0 +1,136 @@
+# Development Environment Configuration
+# Copy this file to terraform.tfvars and customize as needed
+
+# AWS region for development environment
+aws_region = "us-east-2"
+
+# VPC CIDR block
+vpc_cidr = "10.0.0.0/16"
+
+# Cost-optimized networking for development
+enable_nat_gateway    = true
+single_nat_gateway    = true   # Single NAT gateway for cost optimization
+
+# DNS Configuration
+public_domain_name  = "greenroom-dev.tabletoplabs.studio"
+private_domain_name = "greenroom-dev.internal"
+create_public_zone  = true
+create_private_zone = true
+dns_force_destroy   = true      # Allow easy cleanup in dev
+public_record_ttl   = 300
+private_record_ttl  = 60
+create_ssl_certificate = false  # Disabled for dev to avoid validation timeout
+
+# Load Balancer Configuration
+enable_load_balancer = true
+app_port            = 3000
+health_check_path   = "/health"
+
+# ECR Configuration
+ecr_image_tag_mutability = "MUTABLE"
+ecr_scan_on_push        = true
+ecr_max_image_count     = 10    # Lower limit for dev
+
+# ElastiCache Configuration (Valkey - cost-optimized for development)
+cache_engine_version              = "7.2"
+cache_family                     = "valkey7"
+cache_node_type                  = "cache.t4g.micro"  # Smallest instance for dev
+cache_port                       = 6379
+cache_num_nodes                  = 1                  # Single node for dev
+cache_at_rest_encryption_enabled = true
+cache_transit_encryption_enabled = false             # Disabled for simplicity
+cache_snapshot_retention_limit   = 1                 # Minimal snapshots
+cache_snapshot_window           = "03:00-05:00"
+cache_maintenance_window        = "sun:05:00-sun:07:00"
+cache_auto_minor_version_upgrade = true
+
+# ECS Configuration (development-optimized)
+ecs_cpu           = 256         # Minimal CPU for cost optimization
+ecs_memory        = 512         # Minimal memory for cost optimization
+ecs_desired_count = 1           # Single instance for dev
+ecs_min_capacity  = 1
+ecs_max_capacity  = 3           # Limited scaling for dev
+
+# Container Configuration
+container_name = "greenroom-app"
+# container_image = "nginx:latest"  # Uncomment to override ECR image
+
+# Environment Variables for the Application
+environment_variables = {
+  NODE_ENV  = "development"
+  LOG_LEVEL = "debug"
+  PORT      = "3000"
+}
+
+# Health Check Configuration
+health_check_grace_period_seconds = 60
+
+# Monitoring Configuration
+enable_container_insights = true
+log_retention_days       = 7    # Minimal retention for dev
+
+# RDS Configuration (cost-optimized for development)
+db_instance_class                         = "db.t4g.micro"  # Smallest instance
+db_allocated_storage                      = 20              # Minimal storage
+db_max_allocated_storage                  = 100             # Limited autoscaling
+db_backup_retention_period                = 1               # Minimal backups
+db_deletion_protection                    = false           # Disabled for easy cleanup
+db_skip_final_snapshot                    = true            # Skip final snapshot
+db_performance_insights_retention_period  = 7               # Free tier
+
+# ==============================================================================
+# Cognito Configuration
+# ==============================================================================
+
+# Password Policy
+cognito_password_minimum_length        = 8
+cognito_password_require_lowercase     = true
+cognito_password_require_numbers       = true
+cognito_password_require_symbols       = false
+cognito_password_require_uppercase     = true
+cognito_temporary_password_validity_days = 7
+
+# Security Settings
+cognito_mfa_configuration     = "OFF"       # OFF, ON, OPTIONAL - Disabled for dev simplicity
+cognito_advanced_security_mode = "AUDIT"     # OFF, AUDIT, ENFORCED
+
+# Token Validity
+cognito_refresh_token_validity_days = 30
+cognito_access_token_validity_hours = 1
+cognito_id_token_validity_hours     = 1
+
+# OAuth Configuration - update these URLs based on your frontend deployment
+cognito_callback_urls = [
+  "https://app.greenroom-dev.tabletoplabs.studio/auth/callback",
+  "https://api.greenroom-dev.tabletoplabs.studio/auth/callback",
+  "https://admin.greenroom-dev.tabletoplabs.studio/auth/callback",
+  "https://employee.greenroom-dev.tabletoplabs.studio/auth/callback"
+]
+
+cognito_logout_urls = [
+  "https://app.greenroom-dev.tabletoplabs.studio/auth/logout",
+  "https://api.greenroom-dev.tabletoplabs.studio/auth/logout",
+  "https://admin.greenroom-dev.tabletoplabs.studio/auth/logout",
+  "https://employee.greenroom-dev.tabletoplabs.studio/auth/logout"
+]
+
+# Domain Configuration
+cognito_create_domain = true
+cognito_domain_name   = null  # Will use auto-generated domain: greenroom-dev-auth
+
+# Identity Pool (for AWS service access)
+cognito_create_identity_pool             = false
+cognito_allow_unauthenticated_identities = false
+
+# Custom Attributes (add if needed)
+cognito_custom_attributes = [
+  # Example:
+  # {
+  #   name       = "organization_id"
+  #   type       = "String"
+  #   required   = false
+  #   mutable    = true
+  #   min_length = 1
+  #   max_length = 100
+  # }
+]

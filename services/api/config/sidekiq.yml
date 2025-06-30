@@ -1,0 +1,4 @@
+# ToDo Revisit concurrency
+:concurrency: 1
+:queues:
+  - default

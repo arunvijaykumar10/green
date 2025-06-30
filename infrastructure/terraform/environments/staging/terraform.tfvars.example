@@ -1,0 +1,78 @@
+# Staging Environment Configuration
+# Copy this file to terraform.tfvars and customize as needed
+
+# AWS region for staging environment
+aws_region = "us-east-2"
+
+# VPC CIDR block
+vpc_cidr = "10.1.0.0/16"
+
+# High availability for staging (similar to production)
+enable_nat_gateway    = true
+single_nat_gateway    = false  # Multiple NAT gateways for HA
+
+# RDS Configuration (configurable for staging)
+db_instance_class                         = "db.t4g.small"  # Larger than dev
+db_allocated_storage                      = 50              # 50GB initial storage
+db_max_allocated_storage                  = 200             # Max 200GB autoscaling
+db_backup_retention_period                = 7               # Standard backup retention
+db_deletion_protection                    = true            # Protect from accidental deletion
+db_skip_final_snapshot                    = false           # Take final snapshot
+db_performance_insights_retention_period  = 7               # 7 days (free) or 731 days (paid)
+
+# ==============================================================================
+# Cognito Configuration
+# ==============================================================================
+
+# Password Policy (enhanced security for staging)
+cognito_password_minimum_length        = 10
+cognito_password_require_lowercase     = true
+cognito_password_require_numbers       = true
+cognito_password_require_symbols       = true
+cognito_password_require_uppercase     = true
+cognito_temporary_password_validity_days = 7
+
+# Security Settings (enhanced for staging)
+cognito_mfa_configuration     = "ON"        # MFA required for staging
+cognito_advanced_security_mode = "ENFORCED"  # Full security enforcement
+
+# Token Validity
+cognito_refresh_token_validity_days = 30
+cognito_access_token_validity_hours = 1
+cognito_id_token_validity_hours     = 1
+
+# OAuth Configuration - update these URLs based on your staging deployment
+cognito_callback_urls = [
+  "https://app.greenroom.tabletoplabs.studio/auth/callback",
+  "https://api.greenroom.tabletoplabs.studio/auth/callback",
+  "https://admin.greenroom.tabletoplabs.studio/auth/callback",
+  "https://employee.greenroom.tabletoplabs.studio/auth/callback"
+]
+
+cognito_logout_urls = [
+  "https://app.greenroom.tabletoplabs.studio/auth/logout",
+  "https://api.greenroom.tabletoplabs.studio/auth/logout",
+  "https://admin.greenroom.tabletoplabs.studio/auth/logout",
+  "https://employee.greenroom.tabletoplabs.studio/auth/logout"
+]
+
+# Domain Configuration
+cognito_create_domain = true
+cognito_domain_name   = null  # Will use auto-generated domain: greenroom-staging-auth
+
+# Identity Pool (for AWS service access)
+cognito_create_identity_pool             = false
+cognito_allow_unauthenticated_identities = false
+
+# Custom Attributes (add if needed)
+cognito_custom_attributes = [
+  # Example:
+  # {
+  #   name       = "organization_id"
+  #   type       = "String"
+  #   required   = false
+  #   mutable    = true
+  #   min_length = 1
+  #   max_length = 100
+  # }
+]
