@@ -32,4 +32,6 @@ export * from './rhf-number-input';
 
 export * from './rhf-autocomplete';
 
+export * from './canvas-signature';
+
 export * from './rhf-country-select';

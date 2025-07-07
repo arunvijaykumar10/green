@@ -153,7 +153,7 @@ export function NotificationItem({ notification }: NotificationItemProps) {
         bgcolor: 'background.neutral',
       })}
     >
-      <FileThumbnail file="http://localhost:8080/httpsdesign-suriname-2015.mp3" />
+      <FileThumbnail file="http://localhost:5173/httpsdesign-suriname-2015.mp3" />
 
       <ListItemText
         primary="design-suriname-2015.mp3 design-suriname-2015.mp3"

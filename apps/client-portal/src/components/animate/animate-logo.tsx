@@ -36,6 +36,7 @@ export const AnimateLogoZoom = forwardRef<HTMLDivElement, AnimateLogoProps>((pro
       >
         {logo ?? (
           <Logo
+            logoVariant="avatar"
             disabled
             {...slotProps?.logo}
             sx={[

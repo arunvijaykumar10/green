@@ -6,7 +6,7 @@ import SignInView from 'src/auth/view/SignInView';
 
 // ----------------------------------------------------------------------
 
-const metadata = { title: `Sign in | Amplify - ${CONFIG.appName}` };
+const metadata = { title: `Sign in - ${CONFIG.appName}` };
 
 export default function Page() {
   return (

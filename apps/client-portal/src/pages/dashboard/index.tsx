@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 
 import { CONFIG } from 'src/global-config';
 
-import Dashboard from '../../sections/dashboard/Dashboard';
+import DashboardView from 'src/sections/dashboard';
 
 // ----------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ export default function DashboardPage() {
       <Helmet>
         <title>{metadata.title}</title>
       </Helmet>
-      <Dashboard />
+      <DashboardView />
     </>
   );
 }

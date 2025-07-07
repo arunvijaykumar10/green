@@ -61,14 +61,12 @@ export const useNavData = (): NavSectionProps['data'] => {
 
   const items = isSuperAdmin
     ? [
-      { title: 'Review', path: paths.app.review, icon: ICONS.job },
-       { title: 'Companies', path: paths.app.companies, icon: ICONS.job },
+       { title: 'All Companies', path: paths.app.companies, icon: ICONS.job },
     ]
     : baseItems;
 
   return [
     {
-      subheader: 'Overview',
       items,
     },
   ];
