@@ -13,10 +13,10 @@ namespace :cognito do
     )
 
     mock_emails = [
-      "arunkumar@drylogics.com"
+      "arunkumar@drylogics.com",
     ]
 
-    password = "Password@123" 
+    password = "Arun@123  " 
 
     mock_emails.each do |email|
       begin

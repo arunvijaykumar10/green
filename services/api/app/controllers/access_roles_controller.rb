@@ -1,5 +1,5 @@
 class AccessRolesController < ApplicationController
-  skip_before_action :authenticate_user, only: [:admin_roles, :employee_roles]
+  allow_unauthenticated_access only: [:admin_roles, :employee_roles]
   skip_before_action :set_company_context, only: [:admin_roles, :employee_roles]
   skip_after_action :verify_authorized, only: [:admin_roles, :employee_roles]
   skip_after_action :verify_policy_scoped, only: [:admin_roles, :employee_roles]

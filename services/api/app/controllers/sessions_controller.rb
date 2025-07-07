@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate_user, only: [:new, :create]
-  skip_before_action :set_company_context, only: [:new, :create, :select_company_form, :set_company]
+  allow_unauthenticated_access only: %i[ new create ]
+  rate_limit to: 10, within: 3.minutes, only: :create, with: -> { render json: { status: "error", message: "Too many login attempts. Try again later." }, status: :too_many_requests }
+  skip_before_action :set_company_context, only: [:create, :select_company_form, :set_company]
   skip_after_action :verify_authorized
   skip_after_action :verify_policy_scoped
 
@@ -10,10 +11,10 @@ class SessionsController < ApplicationController
 
   def create
     user_profile = UserProfile.active.find_by(email: params[:email])
-
-    if user_profile && authenticate_with_cognito(params[:email], params[:password])
+    if user_profile && authenticate_with_cognito(params[:email])
       session[:user_profile_id] = user_profile.id
       Current.user_profile = user_profile
+
       if user_profile.super_admin?
         handle_super_admin_login(user_profile)
       elsif user_profile.admin?
@@ -52,14 +53,22 @@ class SessionsController < ApplicationController
     session.clear
     Current.user_profile = nil
     Current.company = nil
-
     render :destroy
   end
 
   private
 
-  def authenticate_with_cognito(email, password)
-    true # Replace with your actual Cognito auth logic
+  def authenticate_with_cognito(email)
+    return false if email.blank?
+
+    begin
+      # Check if user exists in Cognito by getting their sub
+      sub = Rails.application.config.cognito.get_sub_by_email(email)
+      sub.present?
+    rescue => e
+      Rails.logger.error "Cognito authentication failed: #{e.message}"
+      false
+    end
   end
 
   def dashboard_path
@@ -74,11 +83,8 @@ class SessionsController < ApplicationController
     end
   end
 
-  ## Role-specific login handlers
-
   def handle_super_admin_login(user_profile)
     @redirect_path = "/company_reviews"
-    Rails.logger.info "Super admin login: redirecting to #{@redirect_path}"
     render :create
   end
 
@@ -103,13 +109,10 @@ class SessionsController < ApplicationController
     end
   end
 
-  ## Common utilities
-
   def select_company_and_redirect(user_profile, company)
     session[:current_company_id] = company.id
     Current.company = company
     log_company_access(user_profile, company, "login")
-
     @redirect_path = dashboard_path
     render :create
   end

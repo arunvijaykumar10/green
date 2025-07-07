@@ -24,7 +24,7 @@ FactoryBot.define do
 
     # Specific role examples
     trait :general_manager do
-      name { "General Manager" }
+      name { "Admin" }
       category { nil }
       role_type { "admin" }
     end

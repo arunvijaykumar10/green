@@ -11,6 +11,7 @@ FactoryBot.define do
     end
     
     trait :joined do
+      invited_at { 2.hours.ago }
       joined_at { 1.hour.ago }
     end
     

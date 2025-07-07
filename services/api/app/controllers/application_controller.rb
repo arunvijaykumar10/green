@@ -1,14 +1,10 @@
 class ApplicationController < ActionController::Base
-  # include ActionController::MimeResponds
-  # include ActionController::ImplicitRender
+  include Authentication
   include Pundit::Authorization
   skip_before_action :verify_authenticity_token
   around_action :wrap_in_transaction, except: [ :index, :show ]
 
-  before_action :set_current_attributes
-  before_action :authenticate_user
-  before_action :set_company_context
-
+  before_action :set_company_context, unless: :skip_company_context_for_super_admin?
   before_action :force_json
   helper_method :current_user, :current_company
 
@@ -16,7 +12,7 @@ class ApplicationController < ActionController::Base
   # rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
   rescue_from ValidationFailed, with: :handle_validation_failed
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  
+
   # Pundit-specific callbacks
   after_action :verify_authorized, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
@@ -46,7 +42,9 @@ class ApplicationController < ActionController::Base
   private
 
   def set_current_attributes
-    Current.request_id = request.uuid
+    Current.company = current_company
+    Current.user_profile = current_user
+    Current.request_id = request.__id__
     Current.user_agent = request.user_agent
     Current.ip_address = request.ip
   end
@@ -71,12 +69,7 @@ class ApplicationController < ActionController::Base
     }, status: :unprocessable_entity
   end
 
-  def authenticate_user
-    subject = parse_subject_from_auth_header
-    email = Rails.application.config.cognito.get_email_from_sub(subject)
-    Current.user_profile = UserProfile.find_by(email: email)
-    raise UnauthorizedError unless Current.user_profile
-  end
+
 
   def wrap_in_transaction
     ActiveRecord::Base.transaction do
@@ -102,9 +95,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_company_context
+    return if skip_company_context? # Skip for super admins on certain controllers
     return unless Current.user_profile # Only proceed if a user is logged in
     return if Current.company # If company is already set (e.g., by select_company_form during initial load)
-    return if skip_company_context? # Skip for super admins on certain controllers
 
     company_id_from_session = session[:current_company_id]
 
@@ -173,5 +166,9 @@ class ApplicationController < ActionController::Base
 
   def skip_company_context?
     %w[company_reviews companies].include?(params[:controller]) && Current.user_profile&.super_admin?
+  end
+
+  def skip_company_context_for_super_admin?
+    Current.user_profile&.super_admin?
   end
 end

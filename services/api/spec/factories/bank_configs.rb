@@ -1,23 +1,25 @@
 FactoryBot.define do
   factory :bank_config do
-    name { "Chase Bank" }
-    routing_no { "021000021" }
-    acc_no { "123456789" }
-    acc_type { "checking" }
-    is_authorized { true }
+    bank_name { "Chase Bank" }
+    routing_number_ach { "021000021" }
+    routing_number_wire { "021000021" }
+    account_number { "123456789" }
+    account_type { "checking" }
+    authorized { true }
+    active { true }
     association :company
 
     trait :unauthorized do
-      is_authorized { false }
+      authorized { false }
     end
 
     trait :savings do
-      acc_type { "savings" }
+      account_type { "savings" }
     end
 
     trait :business do
-      name { "Bank of America" }
-      acc_type { "business" }
+      bank_name { "Bank of America" }
+      account_type { "business" }
     end
   end
 end

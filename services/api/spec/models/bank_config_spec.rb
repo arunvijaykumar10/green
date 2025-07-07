@@ -8,22 +8,41 @@ RSpec.describe BankConfig, type: :model do
       expect(bank_config).to be_valid
     end
 
-    # Assuming BankConfig has required fields like name, code, etc.
-    it 'is not valid without a name' do
-      bank_config.name = nil
+    it 'is not valid without a bank_name' do
+      bank_config.bank_name = nil
       expect(bank_config).not_to be_valid
     end
 
-    it 'is not valid without a bank code' do
-      bank_config.code = nil
+    it 'is not valid without an account_number' do
+      bank_config.account_number = nil
       expect(bank_config).not_to be_valid
+    end
+
+    it 'is not valid without routing_number_ach' do
+      bank_config.routing_number_ach = nil
+      expect(bank_config).not_to be_valid
+    end
+
+    it 'is not valid without routing_number_wire' do
+      bank_config.routing_number_wire = nil
+      expect(bank_config).not_to be_valid
+    end
+
+    it 'validates routing_number_ach format' do
+      bank_config.routing_number_ach = '12345'
+      expect(bank_config).not_to be_valid
+      expect(bank_config.errors[:routing_number_ach]).to include('must be 9 digits')
+    end
+
+    it 'validates routing_number_wire format' do
+      bank_config.routing_number_wire = '12345'
+      expect(bank_config).not_to be_valid
+      expect(bank_config.errors[:routing_number_wire]).to include('must be 9 digits')
     end
   end
 
   describe 'associations' do
-    # Add these tests if BankConfig has associations
-    it { should have_many(:transactions) }
-    it { should belong_to(:institution) }
+    it { should belong_to(:company) }
   end
 
   describe 'scopes' do
@@ -39,34 +58,14 @@ RSpec.describe BankConfig, type: :model do
   end
 
   describe 'instance methods' do
-    describe '#display_name' do
-      it 'returns formatted bank name with code' do
-        bank_config.name = "Test Bank"
-        bank_config.code = "TB123"
-        
-        expect(bank_config.display_name).to eq("Test Bank (TB123)")
-      end
-    end
-
-    describe '#active?' do
-      it 'returns true when bank is active' do
-        bank_config.active = true
-        expect(bank_config.active?).to be true
+    describe '#complete?' do
+      it 'returns true when all required fields are present' do
+        expect(bank_config.complete?).to be true
       end
 
-      it 'returns false when bank is inactive' do
-        bank_config.active = false
-        expect(bank_config.active?).to be false
-      end
-    end
-  end
-
-  describe 'callbacks' do
-    describe 'before_save' do
-      it 'uppercases the bank code before saving' do
-        bank_config.code = "tb123"
-        bank_config.save
-        expect(bank_config.code).to eq("TB123")
+      it 'returns false when bank_name is missing' do
+        bank_config.bank_name = nil
+        expect(bank_config.complete?).to be false
       end
     end
   end

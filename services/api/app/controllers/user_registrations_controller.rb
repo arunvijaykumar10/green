@@ -1,5 +1,5 @@
 class UserRegistrationsController < ApplicationController
-  skip_before_action :authenticate_user, only: [:register]
+  allow_unauthenticated_access only: [:register]
   skip_before_action :set_company_context, only: [:register]
   skip_after_action :verify_authorized, only: [:register]
   skip_after_action :verify_policy_scoped, only: [:register]

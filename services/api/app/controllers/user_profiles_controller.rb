@@ -1,5 +1,5 @@
 class UserProfilesController < ApplicationController
-  before_action :authenticate_user, except: [:create, :activate]
+  allow_unauthenticated_access only: [:create, :activate]
 
   def show
     @user = current_user
